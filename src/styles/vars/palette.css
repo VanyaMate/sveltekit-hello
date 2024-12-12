@@ -1,0 +1,7 @@
+:root {
+    --white       : 255, 255, 255;
+    --white-dark  : 233, 233, 233;
+    --black       : 0, 0, 0;
+    --black-light : 11, 11, 11;
+    --orange      : 254, 78, 66;
+}
