@@ -3,3 +3,4 @@
 - Svelte
 - SvelteKit
 - @vanyamate/sec
+- mongoose
