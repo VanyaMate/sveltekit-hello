@@ -1,7 +1,17 @@
 <script lang="ts">
     import Button from '@/components/shared/buttons/Button/Button.svelte';
     import { ButtonStyleType } from '@/components/shared/buttons/Button/Button.types';
+    import type { PageData } from './$types';
+    import PostCreate from '@/components/widget/post/PostCreate/PostCreate.svelte';
+    import { postModel } from '@/models/post/posts.model';
+    import PostList from '@/components/entity/post/PostList/PostList.svelte';
+
+
+    let { data }: { data: PageData } = $props();
+
+    postModel.set(data.posts);
 </script>
+
 
 <style>
     section {
@@ -12,9 +22,7 @@
     }
 </style>
 
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<PostCreate/>
 
 <section>
     <Button styleType={ButtonStyleType.DEFAULT} href="/todos">Купить</Button>
@@ -24,3 +32,5 @@
     <Button styleType={ButtonStyleType.GHOST} href="/todos">Купить</Button>
     <Button styleType={ButtonStyleType.GHOST}>Купить</Button>
 </section>
+
+<PostList posts={$postModel ?? postModel.get()}/>
